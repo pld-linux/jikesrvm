@@ -4,7 +4,9 @@ Version:	2.3.3
 Release:	0.2
 License:	CPL v1.0
 Group:		Development/Languages/Java
-Source0:	ftp://www-126.ibm.com/pub/%{name}/%{version}/%{name}-%{version}.tar.gz
+#Source0:	ftp://www-126.ibm.com/pub/%{name}/%{version}/%{name}-%{version}.tar.gz
+# download site requires ftp-passive mode. df fails again...
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	ec0fb55a9573727928f82dce46ca5d49
 # classpath license: GPL with a special exception.
 # http://www.gnu.org/software/classpath/license.html
@@ -94,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc rvm/ReleaseNotes*
 %attr(755,root,root) %{_bindir}/rvm
 %dir %{_rvmdir}
-%attr(755,root,root) %{_rvmdir}/JikesRVM
 %{_rvmdir}/RVM.classes
 %{_rvmdir}/RVM.image
+%attr(755,root,root) %{_rvmdir}/JikesRVM
 %attr(755,root,root) %{_rvmdir}/*.so
