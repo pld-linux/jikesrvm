@@ -2,7 +2,7 @@ Summary:	Jikes RVM (Research Virtual Machine)
 Name:		jikesrvm
 Version:	2.3.3
 Release:	0.1
-License:	CPL
+License:	CPL v1.0
 Group:		Development/Languages/Java
 Source0:	ftp://www-126.ibm.com/pub/%{name}/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	ec0fb55a9573727928f82dce46ca5d49
@@ -67,19 +67,19 @@ cd $RVM_BUILD
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/jikesrvm
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_javadir}}
 
 cd build
 install	JikesRVM \
 	$RPM_BUILD_ROOT%{_bindir}/rvm
 install	RVM.classes/{jksvm,rvmrt}.jar \
-	$RPM_BUILD_ROOT%{_datadir}/jikesrvm
+	$RPM_BUILD_ROOT%{_javadir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
-#attr(755,root,root) %{_bindir}/*
-#{_datadir}/%{name}
+%doc rvm/ReleaseNotes*
+%attr(755,root,root) %{_bindir}/rvm
+%{_javadir}/*.jar
