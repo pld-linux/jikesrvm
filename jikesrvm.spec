@@ -1,7 +1,7 @@
 Summary:	Jikes RVM (Research Virtual Machine)
 Name:		jikesrvm
 Version:	2.3.3
-Release:	0.1
+Release:	0.2
 License:	CPL v1.0
 Group:		Development/Languages/Java
 Source0:	ftp://www-126.ibm.com/pub/%{name}/%{version}/%{name}-%{version}.tar.gz
@@ -21,6 +21,8 @@ BuildRequires:	sed >= 4.0
 #Conflicts:	-
 ExclusiveArch:	i686 pentium3 pentium4 athlon ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_rvmdir	%{_libdir}/jikesrvm
 
 %description
 Jikes RVM (Research Virtual Machine) provides the research community
@@ -67,13 +69,22 @@ cd $RVM_BUILD
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_javadir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_rvmdir}{,/RVM.classes}}
 
 cd build
-install	JikesRVM \
-	$RPM_BUILD_ROOT%{_bindir}/rvm
-install	RVM.classes/{jksvm,rvmrt}.jar \
-	$RPM_BUILD_ROOT%{_javadir}
+install *.so RVM.image JikesRVM \
+	$RPM_BUILD_ROOT%{_rvmdir}
+install RVM.classes/{jksvm,rvmrt}.jar \
+	$RPM_BUILD_ROOT%{_rvmdir}/RVM.classes
+cd -
+
+cat << EOF > $RPM_BUILD_ROOT%{_bindir}/rvm
+#!/bin/sh
+CWD=\`pwd\`
+cd %{_rvmdir}
+RVM_BUILD=%{_rvmdir} ./JikesRVM \$1
+cd \$CWD
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,4 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc rvm/ReleaseNotes*
 %attr(755,root,root) %{_bindir}/rvm
-%{_javadir}/*.jar
+%dir %{_rvmdir}
+%attr(755,root,root) %{_rvmdir}/JikesRVM
+%{_rvmdir}/RVM.classes
+%{_rvmdir}/RVM.image
+%attr(755,root,root) %{_rvmdir}/*.so
