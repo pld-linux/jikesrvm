@@ -13,14 +13,9 @@ Source0:	%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.gnu.org/gnu/classpath/classpath-0.10.tar.gz
 # Source1-md5:	a59a5040f9c1237dbf27bfc668919943
 URL:		http://oss.software.ibm.com/developerworks/oss/jikesrvm/index.shtml
-BuildRequires:	gcc
 BuildRequires:	jikes = 1.18
 BuildRequires:	jre
 BuildRequires:	sed >= 4.0
-#Requires:	-
-#Provides:	-
-#Obsoletes:	-
-#Conflicts:	-
 ExclusiveArch:	i686 pentium3 pentium4 athlon ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +38,24 @@ code (typically, C or C++). A Java implementation provides ease of
 portability, and a seamless integration of virtual machine and
 application resources such as objects, threads, and operating-system
 interfaces.
+
+%description -l pl
+Jikes RVM (Research Virtual Machine) dostarcza spo³eczno¶ci badaczy
+elastyczne, otwarte ¶rodowisko testowe do eksperymentowania z
+technologiami maszyn wirtualnych i du¿ym zakresem alternatyw
+projektowych.
+
+Jikes RVM dzia³a na platformach Linux/IA-32, AIX/PowerPC, OSX/PowerPC
+oraz Linux/PowerPC i rozszerza technologie maszyn wirtualnych o
+dynamiczn± kompilacjê, optymalizacjê adaptacyjn±, od¶miecanie,
+szeregowanie w±tków oraz synchronizacjê. Cech± charakterystyczn± Jikes
+RVM jest to, ¿e jest zaimplementowany w jêzyku Java i samono¶ny, tzn.
+jego kod w Javie dzia³a na nim samym bez wymagania drugiej maszyny
+wirtualnej. Wiêkszo¶æ innych maszyn wirtualnych dla platformy Javy
+jest napisana w kodzie natywnym (zwykle C lub C++). Implementacja w
+Javie u³atwia przeno¶no¶æ i przezroczyst± integracjê zasobów maszyny
+wirtualnej i aplikacji, takich jak obiekty, w±tki i interfejsy
+systemu operacyjnego.
 
 %prep
 %setup -q
@@ -71,7 +84,7 @@ cd $RVM_BUILD
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_rvmdir}{,/RVM.classes}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_rvmdir}/RVM.classes}
 
 cd build
 install *.so RVM.image JikesRVM \
