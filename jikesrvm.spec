@@ -82,7 +82,7 @@ cat << EOF > $RPM_BUILD_ROOT%{_bindir}/rvm
 #!/bin/sh
 CWD=\`pwd\`
 cd %{_rvmdir}
-RVM_BUILD=%{_rvmdir} ./JikesRVM \$1
+RVM_BUILD=%{_rvmdir} ./JikesRVM "\$@"
 cd \$CWD
 EOF
 
