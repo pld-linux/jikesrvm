@@ -39,22 +39,22 @@ portability, and a seamless integration of virtual machine and
 application resources such as objects, threads, and operating-system
 interfaces.
 
-%description -l pl
-Jikes RVM (Research Virtual Machine) dostarcza spo³eczno¶ci badaczy
-elastyczne, otwarte ¶rodowisko testowe do eksperymentowania z
-technologiami maszyn wirtualnych i du¿ym zakresem alternatyw
+%description -l pl.UTF-8
+Jikes RVM (Research Virtual Machine) dostarcza spoÅ‚ecznoÅ›ci badaczy
+elastyczne, otwarte Å›rodowisko testowe do eksperymentowania z
+technologiami maszyn wirtualnych i duÅ¼ym zakresem alternatyw
 projektowych.
 
-Jikes RVM dzia³a na platformach Linux/IA-32, AIX/PowerPC, OSX/PowerPC
+Jikes RVM dziaÅ‚a na platformach Linux/IA-32, AIX/PowerPC, OSX/PowerPC
 oraz Linux/PowerPC i rozszerza technologie maszyn wirtualnych o
-dynamiczn± kompilacjê, optymalizacjê adaptacyjn±, od¶miecanie,
-szeregowanie w±tków oraz synchronizacjê. Cech± charakterystyczn± Jikes
-RVM jest to, ¿e jest zaimplementowany w jêzyku Java i samono¶ny, tzn.
-jego kod w Javie dzia³a na nim samym bez wymagania drugiej maszyny
-wirtualnej. Wiêkszo¶æ innych maszyn wirtualnych dla platformy Javy
+dynamicznÄ… kompilacjÄ™, optymalizacjÄ™ adaptacyjnÄ…, odÅ›miecanie,
+szeregowanie wÄ…tkÃ³w oraz synchronizacjÄ™. CechÄ… charakterystycznÄ… Jikes
+RVM jest to, Å¼e jest zaimplementowany w jÄ™zyku Java i samonoÅ›ny, tzn.
+jego kod w Javie dziaÅ‚a na nim samym bez wymagania drugiej maszyny
+wirtualnej. WiÄ™kszoÅ›Ä‡ innych maszyn wirtualnych dla platformy Javy
 jest napisana w kodzie natywnym (zwykle C lub C++). Implementacja w
-Javie u³atwia przeno¶no¶æ i przezroczyst± integracjê zasobów maszyny
-wirtualnej i aplikacji, takich jak obiekty, w±tki i interfejsy
+Javie uÅ‚atwia przenoÅ›noÅ›Ä‡ i przezroczystÄ… integracjÄ™ zasobÃ³w maszyny
+wirtualnej i aplikacji, takich jak obiekty, wÄ…tki i interfejsy
 systemu operacyjnego.
 
 %prep
