@@ -1,4 +1,5 @@
 Summary:	Jikes RVM (Research Virtual Machine)
+Summary(pl.UTF-8):	Jikes RVM (Research Virtual Machine) - badawcza maszyna wirtualna
 Name:		jikesrvm
 Version:	2.3.3
 Release:	0.2
