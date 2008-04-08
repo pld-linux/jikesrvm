@@ -11,7 +11,7 @@ Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	ec0fb55a9573727928f82dce46ca5d49
 # classpath license: GPL with a special exception.
 # http://www.gnu.org/software/classpath/license.html
-Source1:	ftp://ftp.gnu.org/gnu/classpath/classpath-0.10.tar.gz
+Source1:	http://ftp.gnu.org/gnu/classpath/classpath-0.10.tar.gz
 # Source1-md5:	a59a5040f9c1237dbf27bfc668919943
 URL:		http://oss.software.ibm.com/developerworks/oss/jikesrvm/index.shtml
 BuildRequires:	jikes = 1.18
